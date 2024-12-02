@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Classifier Project</title>
+    <link rel="stylesheet" href="stylepage.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ml5@0.10.2/dist/ml5.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Sound Classifier: Detecting Clapping Gestures</h1><br>
+        <p>A project inspired by 'Unmasking AI' by Joy Buolamwini</p>
+    </header>
+
+    <main>
+        <!-- Interactive Model Section -->
+        <section id="interactive-model">
+            <h2>Try the Sound Classifier</h2>
+            <button id="start-button">Start Classifying</button>
+            <div id="label-container"></div>
+        </section>
+
+        <!-- Project Statement Section -->
+<section id="project-statement">
+    <h2 style="text-align: center; color: #0056b3; margin-bottom: 20px;">
+        Project Statement
+    </h2>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 20px;">
+
+<!-- Add your image here -->
+<img src="Screenshot 2024-12-02 at 1.32.13 PM.png" alt="Clapping Gesture Example" 
+     style="display: block; margin: 20px auto; border: 1px solid #ddd; border-radius: 8px; max-width: 100%; height: auto;" />
+
+<div class="section">
+
+</div>
+
+        <!-- Purpose Section -->
+        <div style="background-color: #f0f8ff; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+            <h3 style="color: #0056b3; text-align: center; margin-bottom: 10px;">Purpose</h3>
+            <p>
+        The <strong>🔊Sound Classifier: Detecting Clapping Gestures🔊</strong> project is designed to explore machine learning in an interactive, user-friendly, and socially impactful way. It focuses on identifying four distinct clapping gestures: single clap, continuous clapping, double fast clap, and triple clap. While these gestures may seem simple and playful, they hold potential for practical applications, particularly in the realm of accessibility.
+    </p>
+    <p>
+        This project serves two key purposes. 1️⃣First, it acts as an educational tool to demonstrate how machine learning models can analyze and classify sound inputs in real time. The interactive nature of sound-based classifiers allows users to engage directly with the system, making machine learning concepts more tangible and approachable. 2️⃣Second, it emphasizes the broader societal implications of machine learning, particularly in addressing biases, promoting accessibility, and ensuring ethical design principles are upheld. These considerations are directly inspired by Joy Buolamwini’s <em>Unmasking AI</em>, a book that critiques inequalities in AI systems and advocates for fairness and accountability.
+    </p>
+    <p>
+        One of the standout applications of this classifier is its potential to assist individuals with visual impairments. Recognizing specific clapping patterns could enable gesture-based commands for smart devices, such as turning on lights, sending alerts, or interacting with other assistive technologies. For example, a single clap could signal the activation of a device, while a triple clap could trigger an alert system. These features highlight the classifier’s potential to enhance independence and improve the quality of life for users with disabilities.
+    </p>
+    <p>
+        The classifier was developed using Google’s <strong>Teachable Machine🤖</strong>, a platform that simplifies machine learning for non-experts. By training the model with a diverse range of clapping sounds, the project simulates real-world applications like gesture-controlled devices, sound-based IoT systems, and interactive art installations. The choice of sound as the input medium makes this project inherently engaging, as it encourages active participation from users.
+    </p>
+</div>
+
+<!-- Add your image here -->
+<img src="Screenshot 2024-12-02 at 1.45.21 PM.png" alt="Clapping Gesture Example" 
+     style="display: block; margin: 20px auto; border: 1px solid #ddd; border-radius: 8px; max-width: 80%; height: auto;" />
+
+        <!-- Challenges Section -->
+        <div style="background-color: #e6f7ff; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+            <h3 style="color: #0056b3; text-align: center; margin-bottom: 10px;">Challenges</h3>
+            <ul style="margin-left: 20px;">
+        <strong>📊Data Collection:</strong> One of the most significant hurdles was gathering a diverse and representative dataset. Clapping sounds vary significantly depending on individual style, environment, and even cultural norms. A single clap from one person may be sharp and loud, while another person’s might be softer and slower. Similarly, environmental factors such as background noise, room acoustics, and microphone quality introduced variability that complicated the model’s ability to generalize. To address this, we aimed to collect data from multiple sources and conditions, but ensuring diversity while maintaining consistency in labeling was time-intensive and challenging.
+    </p>
+    <p>
+        <strong>🔊Noise Interference:</strong> Background noise was another major issue during both training and testing. Common sounds like typing, footsteps, or conversations often interfered with the model’s ability to correctly classify clapping gestures. For example, a rapid sequence of background noise could occasionally be misclassified as continuous clapping. This limitation underscored the importance of incorporating noise data into the training process to enhance the model’s robustness. However, finding a balance between capturing the desired sound features and accounting for noise proved to be a nuanced challenge.
+    </p>
+    <p>
+        <strong>🔧Model Accuracy:</strong> The model's accuracy heavily relied on the quality of the training data, as Teachable Machine does not allow for advanced customization of model architecture. During testing, we observed that the classifier occasionally struggled to differentiate between similar gestures, such as a fast double clap and the start of continuous clapping. This was particularly apparent when users varied their speed or rhythm inconsistently. While this limitation highlighted the simplicity of Teachable Machine’s approach, it also served as a reminder that more advanced platforms could offer additional tools for fine-tuning and improving classification performance.
+    </p>
+    <p>
+        <strong>🤔Ethical Considerations:</strong> The ethical implications of the project became evident early on, particularly in relation to the inclusivity of the dataset. Inspired by Joy Buolamwini’s <em>Unmasking AI</em>, we were conscious of ensuring that the model worked effectively for a wide range of users. For instance, physical differences in clapping styles due to age, ability, or cultural background could unintentionally bias the model if these variations were not adequately represented in the dataset. This realization reinforced the importance of designing AI systems that prioritize fairness and inclusivity, even in seemingly simple applications like sound classification.
+    </p>
+    <p>
+        <strong>✋Deployment Challenges:</strong> Deploying the model in a web-based environment presented additional challenges. Ensuring compatibility across devices and browsers required iterative testing and debugging. For instance, certain browsers handled microphone permissions differently, causing inconsistent behavior during testing. Addressing these issues required both technical troubleshooting and user-focused design adjustments to streamline the user experience.
+    </p>
+
+</div>
+
+<!-- Insert the image -->
+<div style="text-align: center; margin: 20px 0;">
+    <img src="./12345.png" alt="Description of the image" style="max-width: 80%; height: auto; border-radius: 8px;">
+  </div>  
+  
+
+        <!-- Lessons from Unmasking AI Section -->
+        <div style="background-color: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+            <h3 style="color: #0056b3; text-align: center; margin-bottom: 10px;">Lessons from <em>Unmasking AI</em></h3>
+        <strong>❕The Importance of Inclusive Datasets:</strong> One of the central themes in <em>Unmasking AI</em> is the role of inclusive datasets in ensuring fairness in machine learning systems. Buolamwini highlights how biased datasets can reinforce systemic inequalities, often excluding or misrepresenting certain groups. For this project, this lesson was especially significant when creating the training dataset for clapping gestures. We recognized that clapping styles might vary depending on factors such as physical ability, cultural norms, and individual technique. To address this, we prioritized collecting diverse examples and ensured the classifier could perform reasonably well across different user scenarios. While achieving perfect inclusivity was beyond the scope of this project, the process emphasized the importance of striving toward fairness in AI systems.
+    </p>
+    <p>
+        <strong>❓Bias in Training and Testing:</strong> Another critical insight from the book is the subtle yet pervasive ways bias can infiltrate AI systems, even when they appear neutral. This was evident during the testing phase of our classifier. For instance, training the model exclusively in quiet environments inadvertently led to reduced performance in noisier settings, a clear example of environmental bias. This limitation reinforced the need for diverse training conditions that reflect the complexities of real-world use cases. Moreover, it underscored the importance of continually revisiting and expanding datasets to address gaps and minimize bias.
+    </p>
+    <p>
+        <strong>♿️Accessibility and User Experience:</strong> Buolamwini discusses how AI tools often fail to consider the needs of marginalized communities, leaving many users excluded from the benefits of these technologies. Inspired by this critique, we designed the Sound Classifier to be accessible and user-friendly. The interface is straightforward, requiring minimal technical expertise, and uses clear visual indicators (e.g., emojis) to display results. By focusing on sound as an input medium, the project also reduces reliance on visual interfaces, making it potentially more inclusive for users with visual impairments. This design choice reflects the broader goal of creating AI systems that empower rather than exclude.
+    </p>
+    <p>
+        <strong>🪛Ethical Responsibility of Developers:</strong> A recurring theme in <em>Unmasking AI</em> is the ethical responsibility of developers to consider the societal impact of their work. Even seemingly small design decisions—such as how data is labeled or how thresholds are set—can have far-reaching consequences for fairness and accessibility. In this project, decisions about defining gesture categories or setting classification thresholds were guided by a commitment to inclusivity and fairness. For instance, we avoided overly narrow definitions of clapping gestures to ensure the classifier could accommodate variations in user input. This process highlighted the importance of transparency, accountability, and user-centered design in AI development.
+    </p>
+    <p>
+        <strong>⚙️Broader Implications of AI:</strong> Buolamwini’s book also challenged us to think critically about the broader societal implications of AI. The Sound Classifier, while a relatively simple application, served as a microcosm of larger debates around AI ethics. It reminded us that even small-scale projects carry ethical weight, particularly when they involve user interaction and data collection. By reflecting on the lessons from <em>Unmasking AI</em>, we were able to approach the project with a deeper awareness of its potential impact and limitations.
+    </p>
+
+</div>
+
+<!-- Insert the image -->
+<div style="text-align: center; margin: 20px 0;">
+    <img src="./Screenshot 2024-12-02 at 2.04.00 PM.png" alt="Description of the image" style="max-width: 80%; height: auto; border-radius: 8px;">
+  </div>
+  
+
+        <!-- Future Improvements Section -->
+        <div style="background-color: #fff9e6; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+            <h3 style="color: #0056b3; text-align: center; margin-bottom: 10px;">Future Improvements</h3>
+            <ul style="margin-left: 20px;">
+        <strong>📊Expanding the Dataset:</strong> One of the most impactful ways to improve the classifier is by expanding its dataset. While the current dataset includes diverse examples of clapping gestures, there is room to further enhance inclusivity. For instance, collecting clapping sounds from users of different age groups, cultural backgrounds, and physical abilities could help the model better generalize to real-world scenarios. Additionally, incorporating more subtle variations in clapping styles—such as softer claps, rhythmic claps, or claps with overlapping background noise—would make the model more robust and adaptable.
+    </p>
+    <p>
+        <strong>🔊Noise Robustness:</strong> Background noise remains a significant challenge for the classifier. Future iterations could include deliberate noise augmentation during the training process. For example, adding synthetic or recorded ambient noise to the dataset would help the model distinguish between clapping gestures and environmental sounds. This approach could make the classifier more reliable in noisy settings, such as public spaces, classrooms, or outdoor environments. Furthermore, leveraging advanced noise-canceling algorithms or pre-processing techniques could enhance the classifier’s ability to isolate clapping sounds from competing noises.
+    </p>
+    <p>
+        <strong>🤔Customization Beyond Teachable Machine:</strong> While Teachable Machine offers a simplified interface for building machine learning models, it has limitations in terms of customization. Moving the project to more advanced platforms, such as TensorFlow or PyTorch, could enable greater control over model architecture, hyperparameters, and feature engineering. This transition would also allow for experimenting with more sophisticated algorithms, such as recurrent neural networks (RNNs) or convolutional neural networks (CNNs), which are better suited for sequential and sound data. These enhancements could significantly improve the classifier’s accuracy and versatility.
+    </p>
+    <p>
+</div>
+
+<!-- Insert the image -->
+<div style="text-align: center; margin: 20px 0;">
+    <img src="./Screenshot 2024-12-02 at 2.03.53 PM.png" alt="Description of the image" style="max-width: 80%; height: auto; border-radius: 8px;">
+  </div>
+  
+        <!-- Conclusion Section -->
+        <div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+            <h3 style="color: #0056b3; text-align: center; margin-bottom: 10px;">Conclusion</h3>
+            <p>
+        The <strong>👂Sound Classifier: Detecting Clapping Gestures👂</strong> project demonstrated the potential of machine learning to create engaging and socially meaningful applications. By focusing on clapping gestures, the project combined technical exploration with real-world relevance, showcasing how sound-based classifiers can be both interactive and impactful. While initially intended as an educational tool, the project revealed broader implications for accessibility, inclusivity, and ethical design in artificial intelligence.
+    </p>
+    <p>
+        One of the project’s most significant takeaways was the importance of designing AI systems that are fair, inclusive, and accountable. Drawing on insights from Joy Buolamwini’s <em>Unmasking AI</em>, the project highlighted the ethical responsibilities of developers to prioritize equity and transparency. From the inclusivity of the dataset to the accessibility of the user interface, each design choice was a reflection of these values. Although challenges such as noise interference and dataset diversity presented limitations, they also served as opportunities for growth and critical reflection.
+    </p>
+    <p>
+        The potential applications of the Sound Classifier extend far beyond its current scope. As highlighted in the <strong>Future Improvements</strong> section, integrating the classifier into assistive technologies or expanding its capabilities to recognize other sound-based gestures could have a profound impact on users with disabilities. For example, visually impaired individuals could benefit from gesture-based control systems that provide greater independence and convenience. These possibilities underscore the transformative power of machine learning when it is designed thoughtfully and inclusively.
+    </p>
+    <p>
+</div>
+
+
+        <!-- Video Embedding Section -->
+        <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
+            <h3 style="color: #0056b3; text-align: center; margin-bottom: 10px;">Video Demonstration</h3>
+            <p style="text-align: center;">👀Watch the algorithm in action below⬇️:</p>
+            <div style="text-align: center;">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/TOrVsLklltM" title="Teachable Machine Sound Classifier" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Attachments Section -->
+        <section id="attachments">
+<h2>Influences and References</h2>
+<p>
+  This project drew inspiration from The Coding Train's tutorial on sound classification. You can view their tutorial➡️ <a href="https://thecodingtrain.com/tracks/teachable-machine/teachable-machine/3-sound-classification" target="_blank">here</a>.
+</p>
+            <h2>Project Files</h2>
+            <ul>
+                <li><a href="script.js" download>Download Script.js</a></li>
+                <li><a href="stylepage.css" download>Download Stylepage.css</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Created by Wei Zhang as part of LIS500</p>
+        <a href="index.html">Back to Home</a>
+    </footer>
+</body>
+</html>
