@@ -1,0 +1,464 @@
+/*card style originally from google merch shop (https://shop.merch.google/?srsltid=AfmBOoq1QzAPQyeUwZ-7ZRaqt_Nv1S0pemLIZjMr4rXvPdi9oBhrRnVz)*/
+/*used stack overflow frequently for support*/
+
+/*global styles */
+/* selected fun colors that would stand out */
+:root {
+  --baby-blue: #89CFF0;
+  --navy-blue: #000080;
+  --light-bg: #F5F5F5;
+  --header-height: 60px;
+  --sidebar-width: 200px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-bg);
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+/*added our own custom image to the header*/
+
+header {
+  background-color: var(--baby-blue);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  height: var(--header-height);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+/*stack overflow showed me how to move the final 3 items by inclusive vs exclusive counting, similar to c++*/
+header > *:nth-child(3) {
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+
+/*footer*/
+.content-wrapper {
+  display: flex;
+  min-height: calc(100vh - var(--header-height));
+  margin-top: var(--header-height);
+}
+
+/*nav bar*/
+nav {
+  background-color: var(--baby-blue);
+  color: white;
+  width: 10rem;
+  padding-top: 2rem;
+  /*adding so the sidebar moves with scroll*/
+  position: fixed;
+  height: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  padding: 1rem;
+}
+
+/*used this navigation information from a previous work of one of the team members on a software project*/
+/*changed the hover display, and the colors, as well as rounded our corners for a more fun and modern feel*/
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+/*adding faint color change when icon is hovered over before clicking*/
+nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a.hello {
+  background-color: var(--navy-blue);
+}
+/*card format used from google merch shop - inspired a lot of the shapes used in website, but changed 
+axis and size and colors*/
+.index-main {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  padding: 3rem;
+  gap: 1rem;
+  /*had to add padding in order to fix the nav bar*/
+  padding-left: 13rem;
+}
+
+section {
+  background-color: white;
+  border-radius: 50px;
+  padding: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+  color: var(--baby-blue);
+  margin-bottom: 1rem;
+}
+
+/*making sure the custom drawings fit correctly on the card - a lot of trial and error to be honest*/
+@media (max-width: 768px) {
+  .content-wrapper {
+      flex-direction: column;
+  }
+
+  nav {
+      width: 100%;
+      padding-top: 0;
+  }
+
+  nav ul {
+      display: flex;
+      justify-content: space-around;
+  }
+
+  nav ul li {
+      padding: 0.5rem;
+  }
+
+  main {
+      flex-direction: column;
+  }
+
+  section {
+      margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+      font-size: 0.8em;
+  }
+
+  nav ul {
+      flex-wrap: wrap;
+  }
+
+  nav ul li {
+      flex: 1 1 50%;
+      text-align: center;
+  }
+}
+
+/* resources page */
+/*once again inspired from google merch shop, but made them horizontal*/
+main {
+  flex-direction: column;
+  align-items: stretch;
+  padding: 1rem;
+  padding-left: 11rem;
+  padding-top: 3rem;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  color: var(--navy-blue);
+  border-bottom: 2px solid var(--navy-blue);
+  padding-bottom: 0.5rem;
+}
+
+/*this was a lot of guessing, I am not sure I quite understood how this was happening, stack overflow came in use here*/
+.video-container {
+  position: relative;
+  padding-bottom: 25%; /* tested percentage until it looked good. */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+/*halfway through found out flex was the best way to display and manipulate for us*/
+.gif-container {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+#resources ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#resources ul li {
+  margin-bottom: 0.5rem;
+}
+
+#resources ul li a {
+  color: var(--navy-blue);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+#resources ul li a:hover {
+  color: var(--navy-blue);
+}
+
+footer {
+  background-color: var(--navy-blue);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+
+/*hero page*/
+.tech-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-direction: row;
+}
+
+/*made the images circular to differ from the rectangles, wanted more shape variation*/
+.hero-image img {
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-info h2 {
+  margin-bottom: 0.5rem;
+}
+
+.hero-title {
+  font-size: 1.2rem;
+  color: var(--navy-blue);
+  margin-bottom: 1rem;
+}
+
+#achievements {
+  display: flex;
+  gap: 40px;
+  flex-direction: row;
+}
+
+/*this was very confusing and it was cutting the video off, so I just copied and renamed and then changed the padding*/
+.video-container-hero {
+  position: relative;
+  padding-bottom: 60%; /* tested percentage until it looked good. */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+/*adding the video into same card as achievements*/
+.achieve, .hero-interview {
+  flex: 1;
+}
+
+#achievements ul {
+  list-style-type: none;
+  padding-left: 0;
+  
+}
+
+#achievements ul li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+  
+}
+
+#achievements ul li::before {
+  content: '•';
+  color: var(--navy-blue);
+  font-size: 1.5em;
+  position: absolute;
+  left: 0;
+  top: -0.2em;
+}
+
+.hero-main {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(2,2fr);
+  padding: 1rem;
+  gap: 1rem;
+}
+
+
+/*about us */
+/*similar to the hero page*/
+/* We did take the suggestion of a classmate and moved the words next to the circle images
+it looks more filled, but is white space better? It helped a lot on the hero page because there was a lot
+but here it could maybe have been okay with the extra white space for a cleaner look. */
+.team-member {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--baby-blue);
+  /*here is where we changed the flex display to rows so the text was next to image*/
+  flex-direction: row;
+}
+
+.team-member:last-child {
+  border-bottom: none;
+}
+
+.team-member-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-member-info {
+  flex: 1;
+}
+
+.team-member-info h2 {
+  color: var(--navy-blue);
+  margin-bottom: 0.5rem;
+}
+
+.team-member-title {
+  font-size: 1.1rem;
+  color: var(--navy-blue);
+  margin-bottom: 1rem;
+}
+
+.team-member-bio {
+  margin-bottom: 1rem;
+}
+
+.team-member-link a {
+  color: var(--navy-blue);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.team-member-link a:hover {
+  color: var(--navy-blue);
+}
+
+#start-button {
+  display: block; /* Ensure the button is visible */
+  margin: 20px auto; /* Center the button horizontally */
+  padding: 10px 20px; /* Add padding for better clickability */
+  font-size: 16px; /* Make the text size readable */
+  background-color: #007bff; /* Button color */
+  color: white; /* Text color */
+  border: none; /* Remove borders */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer; /* Show pointer on hover */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  position: relative; /* Keep it positioned within the flow of the document */
+  z-index: 1; /* Ensure it appears above the banner */
+}
+
+#start-button:hover {
+  background-color: #0056b3; /* Darken button on hover */
+}
+
+#start-button:active {
+  background-color: #004085; /* Even darker color when clicked */
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #000; /* Optional: Add a border for debugging visibility */
+}
+
+#project-statement {
+  margin: 20px auto;
+  max-width: 800px;
+  line-height: 1.6;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+}
+
+#project-statement h2 {
+  text-align: center;
+  color: #0056b3;
+  margin-bottom: 10px;
+}
+
+.contributions {
+  background-color: #f8f9fa; /* Light gray background for distinction */
+  padding: 20px 40px;
+  border-radius: 8px;
+  margin-top: 40px;
+}
+
+.contributions h2 {
+  color: #00237d; /* Same blue tone as headers */
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contribution-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: nowrap; /* Ensure side-by-side layout */
+}
+
+.contribution-box {
+  border: 1px solid #d1d1d1;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 48%; /* Split into two equal halves */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for better appearance */
+}
+
+.contribution-box h3 {
+  color: #00237d; /* Same blue tone */
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.contribution-box p {
+  color: #333333;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Ensure responsiveness for smaller screens */
+@media (max-width: 768px) {
+  .contribution-container {
+    flex-direction: column; /* Stack vertically on smaller screens */
+  }
+  .contribution-box {
+    width: 100%; /* Full width on small screens */
+  }
+}
