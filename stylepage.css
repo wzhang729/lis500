@@ -411,54 +411,77 @@ canvas {
   margin-bottom: 10px;
 }
 
-.contributions {
-  background-color: #f8f9fa; /* Light gray background for distinction */
-  padding: 20px 40px;
-  border-radius: 8px;
-  margin-top: 40px;
-}
-
-.contributions h2 {
-  color: #00237d; /* Same blue tone as headers */
-  font-size: 1.8rem;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.contribution-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: nowrap; /* Ensure side-by-side layout */
-}
-
-.contribution-box {
-  border: 1px solid #d1d1d1;
-  background: #ffffff;
-  border-radius: 8px;
+.chat-section {
+  margin: 40px 0;
   padding: 20px;
-  width: 48%; /* Split into two equal halves */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for better appearance */
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.contribution-box h3 {
-  color: #00237d; /* Same blue tone */
-  font-size: 1.5rem;
-  margin-bottom: 10px;
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.contribution-box p {
-  color: #333333;
-  line-height: 1.6;
+.chat-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.chat-message.right {
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+}
+
+.chat-bubble {
+  max-width: 70%;
+  padding: 15px;
+  border-radius: 20px;
+  line-height: 1.5;
   font-size: 1rem;
+  position: relative;
 }
 
-/* Ensure responsiveness for smaller screens */
-@media (max-width: 768px) {
-  .contribution-container {
-    flex-direction: column; /* Stack vertically on smaller screens */
-  }
-  .contribution-box {
-    width: 100%; /* Full width on small screens */
-  }
+.chat-bubble:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
 }
+
+.chat-message.left .chat-bubble {
+  background-color: #e8f4fc;
+  border: 1px solid #007BFF;
+  color: #333;
+}
+
+.chat-message.left .chat-bubble:before {
+  top: 10px;
+  left: -10px;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #e8f4fc transparent transparent;
+}
+
+.chat-message.right .chat-bubble {
+  background-color: #e9f9e9;
+  border: 1px solid #28A745;
+  color: #333;
+}
+
+.chat-message.right .chat-bubble:before {
+  top: 10px;
+  right: -10px;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #e9f9e9;
+}
+
