@@ -11,6 +11,9 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+ 
+  <div id="top"></div>
+
     <header>
         <h1>Sound Classifier: Detecting Clapping Gestures</h1><br>
         <p>A project inspired by 'Unmasking AI' by Joy Buolamwini</p>
@@ -22,6 +25,7 @@
             <h2>Try the Sound Classifier</h2>
             <button id="start-button">Start Classifying</button>
             <div id="label-container"></div>
+
 <!-- Add this block below your existing Start Classifying button -->
 <div style="text-align: center; margin-top: 15px;">
   <p style="font-size: 16px; color: #333; line-height: 1.8; max-width: 600px; margin: 0 auto;">
@@ -31,7 +35,7 @@
     <br><strong style="color: #DC3545;">4. Triple Clap:</strong> Recognizes three distinct claps in sequence.
   </p>
   <p style="margin-top: 15px; font-size: 16px; color: #333;">
-    This feature demonstrates how sound classification can be used to enhance interactivity and accessibility.
+In this test, “clapping” is defined as a set of distinct hand-produced sound patterns. However, clapping is not universally expressed or understood in the same way across different cultures. Recognizing these variations ensures our model remains flexible, respectful, and inclusive of diverse human expressions.
   </p>
 </div>
 
@@ -45,7 +49,7 @@
     <div style="display: grid; grid-template-columns: 1fr; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 20px;">
 
 <!-- Add your image here -->
-<img src="Screenshot 2024-12-02 at 1.32.13 PM.png" alt="Clapping Gesture Example" 
+<img src="Screenshot 2024-12-09 at 4.45.25 PM.png" alt="Clapping Gesture Example" 
      style="display: block; margin: 20px auto; border: 1px solid #ddd; border-radius: 8px; max-width: 100%; height: auto;" />
 
 <div class="section">
@@ -62,22 +66,12 @@
   <div class="chat-message left">
     <img src="wei_zhang.jpg" alt="Wei Zhang" class="avatar">
     <div class="chat-bubble">
-      <p>The 🔊Sound Classifier: Detecting Clapping Gestures🔊 project is designed to explore machine learning in an interactive, user-friendly, and socially impactful way. It focuses on identifying four distinct clapping gestures: single clap, continuous clapping, double fast clap, and triple clap. While these gestures may seem simple and playful, they hold potential for practical applications, particularly in the realm of accessibility.</p>
+      <p>The Sound Classifier: Detecting Clapping Gestures project aims to demonstrate how machine learning can recognize and differentiate between various clapping patterns—single clap, continuous clapping, fast double clap, and triple clap—and to reflect on the social, cultural, and ethical dimensions of AI development. While these gestures may appear simple and playful, their potential applications span from accessibility enhancements for individuals with visual impairments to hands-free device control in smart homes, as well as interactive educational tools. By focusing on sound-based input, we can broaden AI’s inclusivity, particularly for users who may find traditional visual interfaces challenging. These goals resonate with themes discussed in Joy Buolamwini’s Unmasking AI, which encourages critical thought about fairness, representation, and cultural sensitivity in algorithmic design.</p>
     </div>
   </div>
-
-  <!-- Wei's Chat Bubble 2 -->
-  <div class="chat-message left">
-    <img src="wei_zhang.jpg" alt="Wei Zhang" class="avatar">
-    <div class="chat-bubble">
-      <p>It offers an intuitive way for individuals with disabilities, such as the visually impaired, to interact with devices through clapping patterns, like turning on lights or signaling for help. It also enhances smart home systems by enabling hands-free, gesture-based control. Additionally, it serves as an educational tool for demonstrating machine learning concepts and has potential in interactive entertainment and rehabilitation exercises, showcasing the versatility and inclusivity of AI. These considerations are directly inspired by Joy Buolamwini’s Unmasking AI.</p>
-    </div>
-  </div>
-</div>
-
 
 <!-- Add your image here -->
-<img src="Screenshot 2024-12-02 at 1.45.21 PM.png" alt="Clapping Gesture Example" 
+<img src="Screenshot 2024-12-09 at 5.27.04 PM.png" alt="Clapping Gesture Example" 
      style="display: block; margin: 20px auto; border: 1px solid #ddd; border-radius: 8px; max-width: 70%; height: auto;" />
 
         <!-- Challenges Section -->
@@ -90,7 +84,7 @@
   <div class="chat-message right">
     <img src="wei_zhang.jpg" alt="Wei Zhang" class="avatar">
     <div class="chat-bubble">
-      <p>📊<strong>Data Collection:</strong> Clapping sounds vary significantly depending on individual style, environment, and even cultural norms. A single clap from one person may be sharp and loud, while another person’s might be softer and slower. To address this, we aimed to collect data from multiple sources and conditions, but ensuring diversity while maintaining consistency in labeling was time-intensive and challenging.</p>
+      <p>📊<strong>Data Collection:</strong> Clapping sounds vary across individuals, environments, and cultural backgrounds. Initially, our dataset was limited in its diversity. For example, most samples came from a single environment and a limited set of participants. As we refined the project based on feedback, we expanded our dataset to include clapping from individuals of different ages, genders, and cultural backgrounds, recorded in varied sound environments. This was time-intensive but essential for ensuring that the model does not inadvertently favor one particular style or context, thereby reducing hidden biases.</p>
     </div>
   </div>
 
@@ -98,7 +92,7 @@
   <div class="chat-message right">
     <img src="wei_zhang.jpg" alt="Wei Zhang" class="avatar">
     <div class="chat-bubble">
-      <p>🔊<strong>Noise Interference:</strong> Background noise was another major issue during both training and testing. Sounds like typing, footsteps, or conversations often interfered with the model’s ability to correctly classify clapping gestures. For example, a rapid sequence of background noise could occasionally be misclassified as continuous clapping. This limitation underscored the importance of incorporating noise data into the training process to enhance the model’s robustness.</p>
+      <p>🔊<strong>Noise Interference:</strong> Background sounds such as typing, footsteps, and conversations sometimes interfered with classification. Initially, training data was recorded mostly in quiet environments, leading to poorer performance in noisier settings. To address this, we introduced ambient noise samples and recordings from busy spaces, ensuring that the classifier could better distinguish between clapping gestures and environmental sounds. While not perfect, these efforts aligned with principles from Unmasking AI that caution against overly narrow training conditions that fail to represent real-world complexity.</p>
     </div>
   </div>
 
@@ -106,7 +100,7 @@
   <div class="chat-message right">
     <img src="wei_zhang.jpg" alt="Wei Zhang" class="avatar">
     <div class="chat-bubble">
-      <p>🔧<strong>Model Accuracy:</strong> The model's accuracy heavily relied on the quality of the training data, as Teachable Machine does not allow for advanced customization of model architecture. During testing, we observed that the classifier occasionally struggled to differentiate between similar gestures, such as a fast double clap and the start of continuous clapping. This was particularly apparent when users varied their speed or rhythm inconsistently. While this limitation highlighted the simplicity of Teachable Machine’s approach, it also served as a reminder that more advanced platforms could offer additional tools for fine-tuning and improving classification performance.</p>
+      <p>🔧<strong>Model Accuracy:</strong> Teachable Machine offers a simplified approach to model training. Early iterations struggled to differentiate between fast double claps and the onset of continuous clapping, particularly when user rhythm varied. By broadening the dataset and incorporating more nuanced, culturally and physically varied samples, we improved the model’s ability to generalize. The simplicity of Teachable Machine also underscored the need for potentially more advanced platforms in the future, where we can fine-tune architectures and hyperparameters for better feature extraction.</p>
     </div>
   </div>
 
@@ -114,7 +108,7 @@
   <div class="chat-message left">
     <img src="ziwei.jpg" alt="Ziwei Yu" class="avatar">
     <div class="chat-bubble">
-      <p>🤔<strong>Ethical Considerations:</strong> Inspired by Joy Buolamwini’s <em>Unmasking AI</em>, we were conscious of ensuring that the model worked effectively for a wide range of users. For instance, physical differences in clapping styles due to age, ability, or cultural background could unintentionally bias the model if these variations were not adequately represented in the dataset. This realization reinforced the importance of designing AI systems that prioritize fairness and inclusivity, even in seemingly simple applications like sound classification.</p>
+      <p>🤔<strong>Ethical Considerations:</strong> Unmasking AI highlights how biases in data can reinforce systemic inequalities. In this project, if we did not carefully consider cultural, age-related, or ability-based variations in clapping styles, our model risked excluding certain users. The feedback we received encouraged us to more explicitly integrate cultural relevance. We expanded our data collection efforts, inviting individuals from different communities, and reflected on how subtle differences in clapping could represent distinct cultural practices. By doing so, we aimed to create a classifier that not only recognized claps but did so in a way that did not center one normative pattern at the expense of others.</p>
     </div>
   </div>
 
@@ -122,7 +116,7 @@
   <div class="chat-message left">
     <img src="ziwei.jpg" alt="Ziwei Yu" class="avatar">
     <div class="chat-bubble">
-      <p>✋<strong>Deployment Challenges:</strong> Deploying the model in a web-based environment presented additional challenges. Ensuring compatibility across devices and browsers required iterative testing and debugging. For instance, certain browsers handled microphone permissions differently, causing inconsistent behavior during testing. Addressing these issues required both technical troubleshooting and user-focused design adjustments to streamline the user experience.</p>
+      <p>✋<strong>Deployment Challenges:</strong> Ensuring browser and device compatibility required iterative testing and adjustments. Different browsers handle microphone permissions and input inconsistently, creating unpredictable user experiences. We integrated user-centered design principles, simplifying the output indicators and clarifying instructions. This not only streamlined interaction but also reinforced the importance of making tools accessible to as many users as possible, another central theme in Buolamwini’s work.</p>
     </div>
   </div>
 </div>
@@ -130,7 +124,7 @@
 
 <!-- Insert the image -->
 <div style="text-align: center; margin: 20px 0;">
-    <img src="./12345.png" alt="Description of the image" style="max-width: 70%; height: auto; border-radius: 8px;">
+    <img src="Screenshot 2024-12-09 at 5.27.29 PM.png" alt="Description of the image" style="max-width: 80%; height: auto; border-radius: 8px;">
   </div>  
   
 
@@ -142,7 +136,7 @@
   <div class="chat-message right">
     <img src="wei_zhang.jpg" alt="Wei Zhang" class="avatar">
     <div class="chat-bubble">
-      <p>❕<strong>The Importance of Inclusive Datasets:</strong> One of the central themes in <em>Unmasking AI</em> is the role of inclusive datasets in ensuring fairness in machine learning systems. Buolamwini highlights how biased datasets can reinforce systemic inequalities, often excluding or misrepresenting certain groups. For this project, this lesson was especially significant when creating the training dataset for clapping gestures. To address this, we prioritized collecting diverse examples and ensured the classifier could perform reasonably well across different user scenarios.</p>
+      <p>❕<strong>Inclusive Datasets:</strong> Unmasking AI taught us that representation matters. By initially focusing on too narrow a dataset, we risked encoding biases. Understanding this, our final iteration prioritized a broader range of participants and recording conditions. We explicitly documented where the data came from and the types of variations included, making the training process more transparent and equitable.</p>
     </div>
   </div>
 
@@ -150,7 +144,7 @@
   <div class="chat-message left">
     <img src="ziwei.jpg" alt="Ziwei Yu" class="avatar">
     <div class="chat-bubble">
-      <p>❓<strong>Bias in Training and Testing:</strong> Another critical insight from the book is the subtle yet pervasive ways bias can infiltrate AI systems, even when they appear neutral. This was evident during the testing phase of our classifier. For instance, training the model exclusively in quiet environments inadvertently led to reduced performance in noisier settings, a clear example of environmental bias. This limitation reinforced the need for diverse training conditions that reflect the complexities of real-world use cases.</p>
+      <p>❓<strong>Bias in Training and Testing:</strong> The book emphasizes that bias can emerge in subtle ways. For instance, a model trained in quiet environments struggles in noisy ones—an environmental bias. Our expanded dataset now includes a richer variety of noise conditions, reflecting the complexities of real-world scenarios. This approach helps mitigate bias and improves the model’s robustness, aligning our methods with Buolamwini’s call for AI that works well beyond controlled laboratory conditions.</p>
     </div>
   </div>
 
@@ -158,7 +152,7 @@
   <div class="chat-message right">
     <img src="wei_zhang.jpg" alt="Wei Zhang" class="avatar">
     <div class="chat-bubble">
-      <p>♿️<strong>Accessibility and User Experience:</strong> Buolamwini discusses how AI tools often fail to consider the needs of marginalized communities, leaving many users excluded from the benefits of these technologies. Inspired by this critique, we designed the Sound Classifier to be accessible and user-friendly. The interface is straightforward, requiring minimal technical expertise, and uses clear visual indicators (e.g., emojis) to display results. By focusing on sound as an input medium, the project also reduces reliance on visual interfaces, making it potentially more inclusive for users with visual impairments.</p>
+      <p>♿️<strong>Accessibility and UX:</strong> Buolamwini’s critique reminds us that AI systems should benefit everyone, including those with disabilities. In response, we aimed to make our interface more intuitive by using visual and textual cues that are easy to understand. However, due to current model inaccuracies, multiple and sometimes confusing output symbols still appear in rapid succession after a single clapping sequence. This highlights the need for further model refinement rather than just interface adjustments. By improving the accuracy of our classifier, we can better serve users of diverse abilities, ensuring that the system remains truly inclusive and accessible.</p>
     </div>
   </div>
 
@@ -166,7 +160,7 @@
   <div class="chat-message left">
     <img src="ziwei.jpg" alt="Ziwei Yu" class="avatar">
     <div class="chat-bubble">
-      <p>🪛<strong>Ethical Responsibility of Developers:</strong> A recurring theme in <em>Unmasking AI</em> is the ethical responsibility of developers to consider the societal impact of their work. Even seemingly small design decisions—such as how data is labeled or how thresholds are set—can have far-reaching consequences for fairness and accessibility. In this project, decisions about defining gesture categories or setting classification thresholds were guided by a commitment to inclusivity and fairness. For instance, we avoided overly narrow definitions of clapping gestures to ensure the classifier could accommodate variations in user input.</p>
+      <p>🪛<strong>Ethical Responsibility of Developers:</strong> Unmasking AI stresses that developers have an ethical duty to consider social impacts. In defining clapping gestures and classification thresholds, we moved away from overly rigid definitions. Instead, we embraced flexibility that accommodates cultural and individual differences. This ensures that the model does not impose a single “correct” way of clapping, instead recognizing a spectrum of possibilities.</p>
     </div>
   </div>
 
@@ -174,7 +168,7 @@
   <div class="chat-message right">
     <img src="wei_zhang.jpg" alt="Wei Zhang" class="avatar">
     <div class="chat-bubble">
-      <p>⚙️<strong>Broader Implications of AI:</strong> Buolamwini’s book also challenged us to think critically about the broader societal implications of AI. The Sound Classifier, while a relatively simple application, served as a microcosm of larger debates around AI ethics. It reminded us that even small-scale projects carry ethical weight, particularly when they involve user interaction and data collection.</p>
+      <p>⚙️<strong>Broader Implications of AI:</strong> This project served as a microcosm of larger ethical debates. We learned that even a small sound classifier can reflect societal power dynamics and cultural values. By thinking critically and referencing texts like Unmasking AI, we ensure that our work does not exist in a vacuum, but rather contributes to ongoing discussions about AI’s role in shaping a more just and inclusive future.</p>
     </div>
   </div>
 </div>
@@ -184,7 +178,7 @@
 
 <!-- Insert the image -->
 <div style="text-align: center; margin: 20px 0;">
-    <img src="./Screenshot 2024-12-02 at 2.04.00 PM.png" alt="Description of the image" style="max-width: 70%; height: auto; border-radius: 8px;">
+    <img src="Screenshot 2024-12-09 at 5.28.29 PM.png" alt="Description of the image" style="max-width: 80%; height: auto; border-radius: 8px;">
   </div>
   
 
@@ -197,7 +191,7 @@
   <div class="chat-message right">
     <img src="wei_zhang.jpg" alt="Wei Zhang" class="avatar">
     <div class="chat-bubble">
-      <p>📊<strong>Expanding the Dataset:</strong> One of the most impactful ways to improve the classifier is by expanding its dataset. While the current dataset includes diverse examples of clapping gestures, there is room to further enhance inclusivity. For instance, collecting clapping sounds from users of different age groups, cultural backgrounds, and physical abilities could help the model better generalize to real-world scenarios. Additionally, incorporating more subtle variations in clapping styles—such as softer claps, rhythmic claps, or claps with overlapping background noise—would make the model more robust and adaptable.</p>
+      <p>📊<strong>Expanding the Dataset:</strong> We will continue to broaden the dataset, incorporating more participants from varied linguistic and cultural communities. We will also add more nuanced types of claps—soft, rhythmic, or asynchronous—and gather data in a wider range of acoustic environments. Such expansions will help the model better generalize and reduce cultural or situational biases.</p>
     </div>
   </div>
 
@@ -205,7 +199,7 @@
   <div class="chat-message right">
     <img src="wei_zhang.jpg" alt="Wei Zhang" class="avatar">
     <div class="chat-bubble">
-      <p>🔊<strong>Noise Robustness:</strong> Background noise remains a significant challenge for the classifier. Future iterations could include deliberate noise augmentation during the training process. For example, adding synthetic or recorded ambient noise to the dataset would help the model distinguish between clapping gestures and environmental sounds. Additionally, testing the classifier in noisy settings, such as public spaces, classrooms, or outdoor environments, would further refine its robustness. Leveraging advanced noise-canceling algorithms or pre-processing techniques could enhance the classifier’s ability to isolate clapping sounds from competing noises.</p>
+      <p>🔊<strong>Enhancing Noise Robustness:</strong> Future versions will integrate more deliberate noise augmentation and test the model in public spaces, classrooms, and outdoor environments. By applying advanced noise-canceling techniques or leveraging pre-processing methods, we can further isolate clapping patterns from competing sounds.</p>
     </div>
   </div>
 
@@ -213,7 +207,7 @@
   <div class="chat-message left">
     <img src="ziwei.jpg" alt="Ziwei Yu" class="avatar">
     <div class="chat-bubble">
-      <p>🤔<strong>Customization Beyond Teachable Machine:</strong> While Teachable Machine offers a simplified interface for building machine learning models, it has limitations in terms of customization. Moving the project to more advanced platforms, such as TensorFlow or PyTorch, could enable greater control over model architecture, hyperparameters, and feature engineering. This would allow for a deeper exploration of sound features and more precise classification, ultimately increasing the model's versatility and effectiveness.</p>
+      <p>🤔<strong>Customization Beyond Teachable Machine:</strong> To further refine our model, we may transition from Teachable Machine to more advanced frameworks like TensorFlow or PyTorch. This change would allow for deeper customization of model architectures, feature extraction, and hyperparameters, ultimately leading to more accurate and culturally sensitive classification results.</p>
     </div>
   </div>
 </div>
@@ -229,60 +223,109 @@
             <h3 style="color: #0056b3; text-align: center; margin-bottom: 10px;">Conclusion</h3>
     </p>
     <p>
-        One of the project’s most significant takeaways was the importance of designing AI systems that are fair, inclusive, and accountable. Drawing on insights from Joy Buolamwini’s <em>Unmasking AI</em>, the project highlighted the ethical responsibilities of developers to prioritize equity and transparency. From the inclusivity of the dataset to the accessibility of the user interface, each design choice was a reflection of these values. Although challenges such as noise interference and dataset diversity presented limitations, they also served as opportunities for growth and critical reflection.
+      This project’s evolution demonstrates that even a seemingly straightforward sound classifier has rich ethical and cultural dimensions. By heeding feedback, deepening our engagement with Unmasking AI, and continuously refining our data and interface, we have created a more inclusive, transparent, and contextually aware system. The Sound Classifier now better represents the variety of ways people clap, acknowledging that no single pattern is universally “correct.” In doing so, it illustrates how careful, reflective design can make AI systems not just more accurate, but more just and empathetic.
     </p>
     <p>
-        The potential applications of the Sound Classifier extend far beyond its current scope. As highlighted in the <strong>Future Improvements</strong> section, integrating the classifier into assistive technologies or expanding its capabilities to recognize other sound-based gestures could have a profound impact on users with disabilities. For example, visually impaired individuals could benefit from gesture-based control systems that provide greater independence and convenience. These possibilities underscore the transformative power of machine learning when it is designed thoughtfully and inclusively.
-    </p>
+      Looking forward, the Sound Classifier could play a role in assistive technologies, educational tools, and entertainment platforms, benefiting individuals who rely on auditory cues and gesture-based interactions. By remaining critically engaged with the ethics and cultural implications of machine learning, we can continue shaping AI in a manner that is fair, accessible, and responsibly aligned with human values.    </p>
     <p>
 </div>
 </section>
 
+<!-- Change Log Section -->
+<div style="background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; font-family: Arial, sans-serif;">
+  <h3 style="color: #0056b3; text-align: center; margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 10px;">Change Log</h3>
 
-        <!-- Video Embedding Section -->
-        <div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px;">
-            <h3 style="color: #0056b3; text-align: center; margin-bottom: 10px;">Video Demonstration</h3>
-            <p style="text-align: center;">👀Watch the algorithm in action below⬇️:</p>
-            <div style="text-align: center;">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/TOrVsLklltM" title="Teachable Machine Sound Classifier" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-        </div>
-    </div>
+  <div style="margin-bottom: 20px;">
+    <h4 style="color: #333; margin-bottom: 10px;">Data Diversity & Noise Augmentation</h4>
+    <ul style="line-height: 1.6; margin-left: 20px;">
+      <li>Increased the number of clapping samples per gesture from <strong>20 to 50</strong>, incorporating a wider range of participants with different genders, ages, and cultural backgrounds.</li>
+      <li>Expanded background noise samples from <strong>20 to 140</strong>, including recordings from both quiet and noisy environments, to better reflect real-world conditions and reduce environmental bias.</li>
+    </ul>
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <h4 style="color: #333; margin-bottom: 10px;">Interface Simplification & Navigation Update</h4>
+    <ul style="line-height: 1.6; margin-left: 20px;">
+      <li>Decreased emoji display size for a clearer, less cluttered interface.</li>
+      <li>Changed the bottom navigation icon from “Back to Home” to “Return to Top,” streamlining the user experience.</li>
+      <li>Fixed webpage styling errors to create a cleaner, more visually appealing layout.</li>
+    </ul>
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <h4 style="color: #333; margin-bottom: 10px;">Deeper Engagement with <em>Unmasking AI</em></h4>
+    <ul style="line-height: 1.6; margin-left: 20px;">
+      <li>Revised the project statement to include more nuanced discussions of cultural relevance and bias in AI.</li>
+      <li>Drew direct connections between data diversity, ethical responsibilities, and the themes in Joy Buolamwini’s <em>Unmasking AI</em>.</li>
+      <li>Added explicit acknowledgments of how cultural differences in clapping patterns influence model design and interpretation.</li>
+      <li>Added explanatory notes on how the act of “clapping” may hold different meanings and be expressed differently across various cultures and communities.</li>
+    </ul>
+  </div>
+
+  <div>
+    <h4 style="color: #333; margin-bottom: 10px;">Additional Resources</h4>
+    <ul style="line-height: 1.6; margin-left: 20px;">
+      <li>Included a new video demonstration embedded within the project webpage, providing a clear visual explanation of the model’s functionality and improvements.</li>
+      <li>Updated the GitHub repository with the latest code.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Video Embedding Section -->
+<div style="background-color: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+  <h3 style="color: #0056b3; text-align: center; margin-bottom: 10px;">Video Demonstration</h3>
+  <p style="text-align: center;">👀Watch the algorithm in action below⬇️:</p>
+  <div style="text-align: center;">
+      <!-- 原有的 YouTube 视频 -->
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/TOrVsLklltM" title="Teachable Machine Sound Classifier" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      
+      <!-- 新的视频说明 -->
+      <p style="text-align: center; margin-top: 20px; font-size: 16px; color: #333;">
+        Below is an actual demonstration of our Sound Classifier in action, recorded during our testing phase⬇️:
+      </p>
+      
+      <!-- 新增加的本地视频文件 -->
+      <div style="margin-top: 10px;">
+        <video width="560" height="315" controls>
+          <source src="video3304212740.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+  </div>
+</div>
 </section>
 
-        <!-- Attachments Section -->
-        <section id="attachments">
 
-<br>
-<br>
-<h2>Influences and References</h2>
-<div style="line-height: 1.5;">
-    <p>This project drew inspiration from The Coding Train's tutorial on sound classification.</p>
-    <p style="text-align: center;">You can view their tutorial ➡️ <a href="https://thecodingtrain.com/tracks/teachable-machine/teachable-machine/3-sound-classification" target="_blank">here</a>.</p>
-  </div> 
+<!-- Attachments Section -->
+<section id="attachments">
+  <h2>Influences and References</h2>
+  <div style="line-height: 1.5;">
+      <p>This project drew inspiration from The Coding Train's tutorial on sound classification.</p>
+      <p style="text-align: center;">You can view their tutorial ➡️ <a href="https://thecodingtrain.com/tracks/teachable-machine/teachable-machine/3-sound-classification" target="_blank">here</a>.</p>
+  </div>
 
   <!-- Add GitHub Repository Links -->
-<div style="text-align: center; margin-top: 40px;">
-  <h3 style="color: navy;">GitHub Repositories</h3>
-  <p style="font-size: 16px;">
-    Current Project Repository: 
-    <a href="https://github.com/wzhang729/lis500.git" target="_blank" style="color: blue; text-decoration: underline;">https://github.com/wzhang729/lis500.git</a>
-  </p>
-  <p style="font-size: 16px;">
-    Previous Version Repository: 
-    <a href="https://github.com/sjcoombsnovii/sjcoombsnovii.github.io.git" target="_blank" style="color: blue; text-decoration: underline;">https://github.com/sjcoombsnovii/sjcoombsnovii.github.io.git</a>
-  </p>
-</div>
+  <div style="text-align: center; margin-top: 40px;">
+    <h3 style="color: navy;">GitHub Repositories</h3>
+    <p style="font-size: 16px;">
+      Current Project Repository: 
+      <a href="https://github.com/wzhang729/lis500.git" target="_blank" style="color: blue; text-decoration: underline;">https://github.com/wzhang729/lis500.git</a>
+    </p>
+    <p style="font-size: 16px;">
+      Previous Version Repository: 
+      <a href="https://github.com/sjcoombsnovii/sjcoombsnovii.github.io.git" target="_blank" style="color: blue; text-decoration: underline;">https://github.com/sjcoombsnovii/sjcoombsnovii.github.io.git</a>
+    </p>
+  </div>
+</section>
 
-</p>
-
-        </section>
         
     </main>
 
+
     <footer>
-        <p>Created by Wei Zhang as part of LIS500</p>
-        <a href="index.html">Back to Home</a>
-    </footer>
+      <p>Created by Wei Zhang & Ziwei Yu as part of LIS500</p>
+      <a href="#top">Back to Top</a>
+  </footer>
+  
 </body>
 </html>
