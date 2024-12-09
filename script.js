@@ -1,6 +1,6 @@
 let label = "waiting...";
 let classifier;
-let modelURL = 'https://teachablemachine.withgoogle.com/models/OF6i_qHBx/';
+let modelURL = 'https://teachablemachine.withgoogle.com/models/vVNwzNCrr/';
 
 // Load the model
 function preload() {
@@ -44,17 +44,17 @@ function draw() {
 
     // Display label as emoji
     let emoji = "🎧"; // Default emoji
-    if (label === "Class 5") {
+    if (label === "single") {
         emoji = "👏1️⃣";
-    } else if (label === "Class 6") {
+    } else if (label === "double") {
         emoji = "👏+∞";
-    } else if (label === "Class 7") {
+    } else if (label === "triple") {
         emoji = "👏👏";
-    } else if (label === "Class 8") {
+    } else if (label === "continuous") {
         emoji = "👏👏👏";
     }
 
-    textSize(256);
+    textSize(100);
     textAlign(CENTER, CENTER);
     fill(255);
     text(emoji, width / 2, height / 2);
